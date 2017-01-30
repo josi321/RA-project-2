@@ -7,7 +7,7 @@
 export default class CatalogView{
 
     constructor(){
-        this.initCarousel();
+        this.carousel=document.getElementsByClassName("owl-carousel");
 
     }
 
@@ -24,7 +24,24 @@ export default class CatalogView{
         belonging to that class) - see line 88 below.
          */
 
-        this.carousel = document.getElementsByClassName("container");
+       $(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1240:{
+            items:4
+        }
+    }
+});
+ });
     }
 
     addProductsToCarousel(products){
@@ -89,6 +106,8 @@ export default class CatalogView{
             newDiv.appendChild(newPricePara);
             this.carousel[0].appendChild(newDiv);
         }
+
+        this.initCarousel();
 
     }
 

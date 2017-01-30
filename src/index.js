@@ -12,9 +12,13 @@ is the application (i.e. your web site, the shopping cart project)
 itself. This is done for organization and cleanliness in code.
 So now you only see two lines here in index.js
  */
+
 import App from './App';
 
 let app = new App();
+
+console.log(app);
+
 
 
 

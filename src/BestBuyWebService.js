@@ -69,6 +69,7 @@ export default class BestBuyWebService{
            this.products = jsonData.products;
            return this.products;
         }
+        console.log(this.products);
 
         return; // if we have no data, return nothing
     }
