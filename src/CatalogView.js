@@ -7,8 +7,9 @@
 export default class CatalogView{
 
     constructor(){
-        // this.initCarousel(); // do the function initCarousel, which is written below
+        // this.initCarousel(); // do the function initCarousel, which is written below around lines 132-133
          this.carousel=document.getElementsByClassName("owl-carousel");
+         this.theApp = null; //this is the app.js
     }
 
     initCarousel(){
@@ -45,11 +46,25 @@ export default class CatalogView{
  });
     }
 
-    addProductsToCarousel(products){
+//rmb we made the add to cart button, we made the function for on click, this is the empty function's function
+    onClickCartButton(e) {
+         console.log(e.target.getAttribute("data-sku"));
+         /*e.target.getAttribute ("data-sku") is the button with the sku value that we saw in the console. you can also write it like
+         console.log(e.target .attribute["data-sku"];
+         now that we know the data sku works, we need to pass it to the shopping cart, which the code below*/
+         let theSku = e.target.getAttribute("data-sku");
+         this.theApp.shoppingCart.addItemToCart(theSku); //addItemToCart is a function that should be in the shoppingcart.js file
+};
+
+//realize that theApp is refering to 'this' from App.js on line 51
+    addProductsToCarousel(products, theApp){
+
+        this.theApp = theApp; //this line tells the carousel of theApp's exsistance??
+
 // if product is nothing or undefined, dont show anything
         if (products === undefined || products == null){
             return ; // do not do anything! there is no data
-        }
+        };
 
         /* the loop creates all the elements for each item in the carousel.
          * it recreates the following structure
@@ -124,6 +139,10 @@ export default class CatalogView{
             addToCartButton.setAttribute("type", "button");
             let addToCartTextNode = document.createTextNode("Add to Cart");
             addToCartButton.appendChild(addToCartTextNode);
+            addToCartButton.addEventListener("click", this.onClickCartButton, false);
+             // addToCartButton.addEventListener("click", fuction(e) {console.log('click')}, false); // listens for a click, and everytime its clicked, it runs the function. notice the function is emtpy and nly has console log. this is a sanity check
+
+
 
             //we need to append these to the Div
             newDiv.appendChild(newImg);
@@ -147,6 +166,7 @@ export default class CatalogView{
             you img, h3, p tags to each of your products (each div is each of your images*/
             this.carousel[0].appendChild(newDiv);
         }
+        //now that we made and appended the add to cart button and quickview button, we can now use the eventlistener or click functions
 
         //this line will initate the carousel so all your things for the carousel actually works
         this.initCarousel();

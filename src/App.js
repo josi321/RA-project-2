@@ -48,7 +48,9 @@ export default class App {
     showCatalog() {
         // populate the catalog only if there are products
         if (this.productData != null) {
-            this.catalogView.addProductsToCarousel(this.products);
+            this.catalogView.addProductsToCarousel(this.products, this); /* orginally this was just this.product
+            which represents the ability to pass the products. now we added 'this' after is, and
+            rmb that 'this' refers to the entire App. Therefore, we can now pass the App to the Catalogview */
             // this.catalogView.showCatalog();
         }
     }
