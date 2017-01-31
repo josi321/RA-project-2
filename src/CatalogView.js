@@ -109,20 +109,46 @@ export default class CatalogView{
             of each product.
             */
 
+            //make the quickview buttons
+            let quickViewButton = document.createElement("button");
+            quickViewButton.setAttribute("id",`qv_${product.sku}`);  /* this is for the id note that the ${product.sku} is just a placeholder for the product sku. back ticks are used bc this is ES6 */
+            quickViewButton.setAttribute("data-sku",product.sku); // this is for the data-sku;
+            quickViewButton.setAttribute("type", "button");
+            let quickViewTextNode = document.createTextNode("Quick View");
+            quickViewButton.appendChild(quickViewTextNode);
+
+            //make the add to cart button
+             let addToCartButton = document.createElement("button");
+            addToCartButton.setAttribute("id",`cart_${product.sku}`);  /* this is for the id note that the ${product.sku} is just a placeholder for the product sku. back ticks are used bc this is ES6 */
+            addToCartButton.setAttribute("data-sku",product.sku); // this is for the data-sku;
+            addToCartButton.setAttribute("type", "button");
+            let addToCartTextNode = document.createTextNode("Add to Cart");
+            addToCartButton.appendChild(addToCartTextNode);
+
+            //we need to append these to the Div
             newDiv.appendChild(newImg);
             newDiv.appendChild(newPara);
             newDiv.appendChild(newH3Tag);
             newDiv.appendChild(newPricePara);
+            newDiv.appendChild(quickViewButton); // this adds new quickViewButton
+            newDiv.appendChild(addToCartButton); // this adds new add to cart buttons
             // this produces your div tags with you img, paragraph h3, and price tags
-            //<div>
-                //<img src="somepic.jpg"></img>
-                //<p>Buy me</p>
-                //<h3>Dell inspirion 12"</h3>
-                //<p>299.99</p>
-            // </div>
+            /*<div>
+                <img src="somepic.jpg"></img>
+                <p>Buy me</p>
+                <h3>Dell inspirion 12"</h3>
+                <p>299.99</p>
+                add the buttons and quickview in the same manner
+                <button type= "button" id ="qv_${product.sku}" data-sku=" " >Quickview</button>
+                <button type= "button" id="cart_${product.sku}" data-sku=" ">Add to Cart</button>
+             </div> */
+            /*at the end of the loop, your telling it to go to the first carousel (bc you may have more than 1 div tag with the same class
+            name)  to append/add that child--> so everytime around the loop, it will add a new div tag containing all
+            you img, h3, p tags to each of your products (each div is each of your images*/
             this.carousel[0].appendChild(newDiv);
         }
 
+        //this line will initate the carousel so all your things for the carousel actually works
         this.initCarousel();
 
     }
