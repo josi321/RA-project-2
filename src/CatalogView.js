@@ -9,7 +9,7 @@ export default class CatalogView{
     constructor(){
         // this.initCarousel(); // do the function initCarousel, which is written below around lines 132-133
          this.carousel=document.getElementsByClassName("owl-carousel");
-         this.theApp = null; //this is the app.js
+         this.theApp = null; //this.theApp refers to THIS catalogView file which has the property theApp, which refers to the app.js
     }
 
     initCarousel(){
@@ -47,13 +47,18 @@ export default class CatalogView{
     }
 
 //rmb we made the add to cart button, we made the function for on click, this is the empty function's function
-    onClickCartButton(e) {
-         console.log(e.target.getAttribute("data-sku"));
-         /*e.target.getAttribute ("data-sku") is the button with the sku value that we saw in the console. you can also write it like
-         console.log(e.target .attribute["data-sku"];
-         now that we know the data sku works, we need to pass it to the shopping cart, which the code below*/
-         let theSku = e.target.getAttribute("data-sku");
-         this.theApp.shoppingCart.addItemToCart(theSku); //addItemToCart is a function that should be in the shoppingcart.js file
+//the onClickCartButton receives theApp, also rmb that e always has to have a function (e) {}
+    onClickCartButton(theApp) {
+
+        return function (e){
+             console.log(e.target.getAttribute("data-sku"));
+             /*e.target.getAttribute ("data-sku") is the button with the sku value that we saw in the console. you can also write it like
+             console.log(e.target .attribute["data-sku"];
+             now that we know the data sku works, we need to pass it to the shopping cart, which the code below*/
+             let theSku = e.target.getAttribute("data-sku");
+             theApp.shoppingCart.addItemToCart(theSku); /*addItemToCart is a function that should be in the shoppingcart.js file.
+             note that theSku is a variable with the value "data-sku" which is essentially the same as (shu) in the shoppingcart.js file*/
+    }
 };
 
 //realize that theApp is refering to 'this' from App.js on line 51
@@ -139,7 +144,7 @@ export default class CatalogView{
             addToCartButton.setAttribute("type", "button");
             let addToCartTextNode = document.createTextNode("Add to Cart");
             addToCartButton.appendChild(addToCartTextNode);
-            addToCartButton.addEventListener("click", this.onClickCartButton, false);
+            addToCartButton.addEventListener("click", this.onClickCartButton(this.theApp), false);
              // addToCartButton.addEventListener("click", fuction(e) {console.log('click')}, false); // listens for a click, and everytime its clicked, it runs the function. notice the function is emtpy and nly has console log. this is a sanity check
 
 

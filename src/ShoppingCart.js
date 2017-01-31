@@ -22,7 +22,7 @@ export default class ShoppingCart{
     }
 
     addItemToCart(sku){
-
+        console.log(`the sku is.....${sku}`);
     }
 
     removeItemFromCart(sku){
