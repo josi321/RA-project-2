@@ -7,11 +7,12 @@
 export default class CatalogView{
 
     constructor(){
-        this.carousel=document.getElementsByClassName("owl-carousel");
-
+        // this.initCarousel(); // do the function initCarousel, which is written below
+         this.carousel=document.getElementsByClassName("owl-carousel");
     }
 
     initCarousel(){
+        // this.carousel=document.getElementsByClassName("owl-carousel");
         /*
         You should initialize the flickicity carousel here.
         Right now this code just adds the div tags you would need to add
@@ -45,7 +46,7 @@ export default class CatalogView{
     }
 
     addProductsToCarousel(products){
-
+// if product is nothing or undefined, dont show anything
         if (products === undefined || products == null){
             return ; // do not do anything! there is no data
         }
@@ -59,22 +60,28 @@ export default class CatalogView{
          * <p class="price">$169.00</p>
          * </div>
           * */
+          //p is just the counter
         for (let p=0; p<products.length; p++){
+            //let the product we're looking at be in the product's array
             let product = products[p];
             console.log(product);
             // each product is a product object
             // use it to create the element
 
-            // create the DIV tag with class 'product-wrapper'
+            // create the DIV tag with class 'product-wrapper''
+            //we make a new div bc rmb inside the owl carosel we had more divs inside it holding each product's name, image, price in it
             let newDiv = document.createElement("div");
             newDiv.setAttribute("class","product-wrapper");
+                // this just makes a new div, but we didnt place it anywhere yet. <div class='product-wrappe'r></div>
 
             // create a new IMG tag. Suggest to add data-sku attribute here too
             // so that if you 'click' on the image, it would pop up a quick-view
             // window and you can use the sku.
             let newImg = document.createElement("img");
+           // use the image's property 'image'
             newImg.setAttribute("src", product.image);
             newImg.setAttribute("alt", `${product.name}`); // this works too
+            //set the data-sku for the image
             newImg.setAttribute("data-sku",product.sku);
 
             // create a new Paragraph to show a description
@@ -85,13 +92,15 @@ export default class CatalogView{
 
             // create a new H3 tag to show the name
             let newH3Tag = document.createElement("h3");
-            let newH3TagTextNode = document.createTextNode(product.name);
-            newH3Tag.appendChild(newH3TagTextNode);
+            let newH3TagTextNode = document.createTextNode(product.name); //this creates the text that will go btwn the <h3> tags
+            newH3Tag.appendChild(newH3TagTextNode); //appendchild means it will insert the text between the h3 tags
+            //<h3></h3>
 
             let newPricePara = document.createElement("p");
             newPricePara.setAttribute("class","price");
-            let newPriceParaTextNode = document.createTextNode(product.regularPrice);
+            let newPriceParaTextNode = document.createTextNode(product.regularPrice); //2.99
             newPricePara.appendChild(newPriceParaTextNode);
+            //<p class='price'>2.99</p>
 
             /* you will need similar code to create
             an add to cart and a quick view button
@@ -104,6 +113,13 @@ export default class CatalogView{
             newDiv.appendChild(newPara);
             newDiv.appendChild(newH3Tag);
             newDiv.appendChild(newPricePara);
+            // this produces your div tags with you img, paragraph h3, and price tags
+            //<div>
+                //<img src="somepic.jpg"></img>
+                //<p>Buy me</p>
+                //<h3>Dell inspirion 12"</h3>
+                //<p>299.99</p>
+            // </div>
             this.carousel[0].appendChild(newDiv);
         }
 

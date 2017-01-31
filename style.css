@@ -37,52 +37,52 @@ img {
    max-width: 100%;
 }
 
-/*FONT-FACE for Raleway*/
+/*FONT-FACE for Roberto*/
 
 @font-face {
-    font-family: 'Raleway';
-    src: url('../fonts/raleway-medium-webfont.eot');
-    src: url('../fonts/raleway-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/raleway-medium-webfont.woff2') format('woff2'),
-         url('../fonts/raleway-medium-webfont.woff') format('woff'),
-         url('../fonts/raleway-medium-webfont.ttf') format('truetype'),
-         url('../fonts/raleway-medium-webfont.svg#ralewaymedium') format('svg');
+    font-family: 'Roberto';
+    src: url('../fonts/roberto-medium-webfont.eot');
+    src: url('../fonts/roberto-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roberto-medium-webfont.woff2') format('woff2'),
+         url('../fonts/roberto-medium-webfont.woff') format('woff'),
+         url('../fonts/roberto-medium-webfont.ttf') format('truetype'),
+         url('../fonts/roberto-medium-webfont.svg#ralewaymedium') format('svg');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Raleway';
-    src: url('../fonts/raleway-mediumitalic-webfont.eot');
-    src: url('../fonts/raleway-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/raleway-mediumitalic-webfont.woff2') format('woff2'),
-         url('../fonts/raleway-mediumitalic-webfont.woff') format('woff'),
-         url('../fonts/raleway-mediumitalic-webfont.ttf') format('truetype'),
-         url('../fonts/raleway-mediumitalic-webfont.svg#ralewaymedium_italic') format('svg');
+    font-family: 'Roberto';
+    src: url('../fonts/roberto-mediumitalic-webfont.eot');
+    src: url('../fonts/roberto-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roberto-mediumitalic-webfont.woff2') format('woff2'),
+         url('../fonts/roberto-mediumitalic-webfont.woff') format('woff'),
+         url('../fonts/roberto-mediumitalic-webfont.ttf') format('truetype'),
+         url('../fonts/roberto-mediumitalic-webfont.svg#ralewaymedium_italic') format('svg');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Raleway';
-    src: url('../fonts/raleway-lightitalic-webfont.eot');
-    src: url('../fonts/raleway-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/raleway-lightitalic-webfont.woff2') format('woff2'),
-         url('../fonts/raleway-lightitalic-webfont.woff') format('woff'),
-         url('../fonts/raleway-lightitalic-webfont.ttf') format('truetype'),
-         url('../fonts/raleway-lightitalic-webfont.svg#ralewaylight_italic') format('svg');
+    font-family: 'Roberto';
+    src: url('../fonts/roberto-lightitalic-webfont.eot');
+    src: url('../fonts/roberto-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roberto-lightitalic-webfont.woff2') format('woff2'),
+         url('../fonts/roberto-lightitalic-webfont.woff') format('woff'),
+         url('../fonts/roberto-lightitalic-webfont.ttf') format('truetype'),
+         url('../fonts/roberto-lightitalic-webfont.svg#ralewaylight_italic') format('svg');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Raleway';
+    font-family: 'Roberto';
     src: url('s-light-webfont.eot');
-    src: url('../fonts/raleway-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/raleway-light-webfont.woff2') format('woff2'),
-         url('../fonts/raleway-light-webfont.woff') format('woff'),
-         url('../fonts/raleway-light-webfont.ttf') format('truetype'),
-         url('../fonts/raleway-light-webfont.svg#ralewaylight') format('svg');
+    src: url('../fonts/roberto-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roberto-light-webfont.woff2') format('woff2'),
+         url('../fonts/roberto-light-webfont.woff') format('woff'),
+         url('../fonts/roberto-light-webfont.ttf') format('truetype'),
+         url('../fonts/roberto-light-webfont.svg#ralewaylight') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -228,8 +228,7 @@ img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: linear-gradient(rgba(0,0,0,0.5),transparent),
-	url("assets/images/bestbuy.jpg") center repeat-x;
+	background: url("assets/images/banner.jpg") center no-repeat;
 	background-size: cover;
 	position: relative;
 	min-height: 80vh;
@@ -237,21 +236,35 @@ img {
 
 .banner-text {
 	color: white;
-	font-weight: bold;
-	text-align: center;
+	/*font-weight: bold;*/
+	/*text-align: center;*/
 	/*padding: 18% 0;*/
 }
 
 .banner-h1 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 2rem;
+   /* font-family: 'Raleway', sans-serif;*/
+   /*font-family: sans-serif;*/
+    font-size: 1.7rem;
     margin-top: 3rem;
 }
 
 .banner-h2 {
-    font-family: 'Playfair display', serif;
-    font-size: 5rem;
+    /*font-family: 'Playfair display', serif;*/
+    font-size: 2.1rem;
     /*margin-top: 4rem;*/
+}
+
+.green-border {
+	border: 2px solid green;
+	width:20%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.green-border a {
+	color: white;
+	font-size: 1rem;
+	padding: 2%;
 }
 
 /*CTA SECTION*/
@@ -268,7 +281,6 @@ img {
 .h3-text {
 	font-size: 3.3rem;
 	margin:3% 0;
-	font-style: italic;
 	font-weight: normal;
 	font-family: 'Playfair display', serif;
 	color: #404040;
@@ -279,6 +291,7 @@ span {
 	font-style: normal;
 	font-weight: bold;
 	font-family: 'Playfair display', serif;
+	color:green;
 }
 
 .h3-text p {
@@ -317,49 +330,45 @@ span {
 	text-transform: uppercase;
 	text-align: center;
 	font-family: 'Raleway', sans-serif;
-	text-shadow: 2px 2px 4px black;
+	/*text-shadow: 2px 2px 4px black;*/
 	font-size: 2rem;
 	min-height: 25vh;
 	text-align: center;
 	transform: translateY(50%);
 }
 .wide.cpu {
-	background: linear-gradient(rgba(0,0,0,0.5),transparent),
-				url("assets/images/cpu.jpg") no-repeat center center;
+	background: url("assets/images/laptop-category.jpg") no-repeat center;
 	background-size: cover;
 }
 
-.square.phones {
-	background:linear-gradient(rgba(0,0,0,0.5),transparent),
-				url("assets/images/phones.jpg") no-repeat center center;
+.square.tv {
+	background: url("assets/images/tv-category.jpg") no-repeat center;
 	background-size: cover;
 }
 
-.square.printer {
-	background:linear-gradient(rgba(0,0,0,0.5),transparent),
-				url("assets/images/printer.jpg") no-repeat center center;
+.square.home-audio {
+	background:url("assets/images/home-audio-category.jpg") no-repeat center;
 	background-size: cover;
-}
-
-.square.sale {
-		background:linear-gradient(rgba(0,0,0,0.5),transparent),
-				url("assets/images/sale-category.jpg") no-repeat center center;
-		background-size: cover;
 }
 
 .square.tablets {
-		background:linear-gradient(rgba(0,0,0,0.5),transparent),
-				url("assets/images/tablets.jpg") no-repeat center center;
+		background:url("assets/images/tablet-category.jpg") no-repeat center;
 		background-size: cover;
 }
 
-.wide.laptops {
-		background:linear-gradient(rgba(0,0,0,0.5),transparent),
-				url("assets/images/laptops.jpg") no-repeat center center;
+.square.desktop { background: url("assets/images/desktop-category.jpg") no-repeat center;
 		background-size: cover;
 }
 
+.wide.cell {background: url("assets/images/cell-category.jpg") no-repeat center;
+		background-size: cover;
+}
 
+.product-header {
+	color: #545454;
+	text-align: center;
+	text-transform: uppercase;
+}
 .owl-theme .owl-nav [class*="owl-"] {
 	display: none !important;
 }
@@ -380,23 +389,20 @@ span {
 	justify-content: center;
 	flex-wrap: wrap;
 	flex-flow: row;
-	background: linear-gradient(rgba(0,0,0,0.3),transparent),
-		url("assets/images/wave-bkgd.jpg") center bottom no-repeat;
+	background-color: green;
 	min-height: 42vh;
 	padding-bottom: 4rem;
+	color:white;
+	/*text-align: center;*/
 
 }
 
-.signup .h3-text {
-	color: white;
+.signup h3 {
 	padding-bottom: 2rem;
-}
-
-.signup p {
-	color: white;
-	line-height: 2;
 	text-align: center;
 }
+.signup p {text-align: center}
+
 
 .sub-Form {
 	padding: 0.3rem;
@@ -648,8 +654,7 @@ li{
 }
 
 .banner {
-    background: linear-gradient(rgba(0,0,0,0.5),transparent),
-    url("assets/images/bestbuy.jpg") center  repeat-x;
+    background: url("assets/images/banner.jpg") center  no-repeat;
     background-size: cover;
     min-height: 110vh;
 }
