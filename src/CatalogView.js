@@ -51,6 +51,7 @@ export default class CatalogView{
     onClickCartButton(theApp) {
 
         return function (e){
+            console.log(theApp);
              console.log(e.target.getAttribute("data-sku"));
              /*e.target.getAttribute ("data-sku") is the button with the sku value that we saw in the console. you can also write it like
              console.log(e.target .attribute["data-sku"];
@@ -59,7 +60,7 @@ export default class CatalogView{
              theApp.shoppingCart.addItemToCart(theSku); /*addItemToCart is a function that should be in the shoppingcart.js file.
              note that theSku is a variable with the value "data-sku" which is essentially the same as (shu) in the shoppingcart.js file*/
     }
-};
+}
 
 //realize that theApp is refering to 'this' from App.js on line 51
     addProductsToCarousel(products, theApp){

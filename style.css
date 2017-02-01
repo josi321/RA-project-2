@@ -373,6 +373,11 @@ span {
 	display: none !important;
 }
 
+.green-btn {
+	background-color: green;
+	color: white;
+}
+
 /*.addtocart {
 	background-color: black;
 	color: white;
