@@ -26,8 +26,8 @@ export default class CatalogView{
         belonging to that class) - see line 88 below.
          */
 
-       $(document).ready(function(){
-  $('.owl-carousel').owlCarousel({
+$(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
     nav:true,
@@ -59,6 +59,7 @@ export default class CatalogView{
              let theSku = e.target.getAttribute("data-sku");
              theApp.shoppingCart.addItemToCart(theSku); /*addItemToCart is a function that should be in the shoppingcart.js file.
              note that theSku is a variable with the value "data-sku" which is essentially the same as (shu) in the shoppingcart.js file*/
+
     }
 }
 
@@ -98,27 +99,32 @@ export default class CatalogView{
             // create a new IMG tag. Suggest to add data-sku attribute here too
             // so that if you 'click' on the image, it would pop up a quick-view
             // window and you can use the sku.
-            let newImg = document.createElement("img");
+            let newImg = document.createElement("div");
            // use the image's property 'image'
-            newImg.setAttribute("src", product.image);
+            newImg.setAttribute("style",`background-image: url('${product.image}'); background-size:contain; bckground-repeat:no-repeat; position:center; height:250px;`);
             newImg.setAttribute("alt", `${product.name}`); // this works too
             //set the data-sku for the image
             newImg.setAttribute("data-sku",product.sku);
 
-            // create a new Paragraph to show a description
-            let newPara = document.createElement("p");
-            newPara.setAttribute("class","product-type");
-            let newParaTextNode = document.createTextNode(product.longDescription);
-            newPara.appendChild(newParaTextNode);
+            //this is a line break
+            let newHr= document.createElement("hr");
 
-            // create a new H3 tag to show the name
+             // create a new H3 tag to show the name
             let newH3Tag = document.createElement("h3");
-            let newH3TagTextNode = document.createTextNode(product.name); //this creates the text that will go btwn the <h3> tags
+            newH3Tag.setAttribute("class", "greyText uppercase");
+            let newH3TagTextNode = document.createTextNode(product.manufacturer); //this creates the text that will go btwn the <h3> tags
             newH3Tag.appendChild(newH3TagTextNode); //appendchild means it will insert the text between the h3 tags
             //<h3></h3>
 
+            // create a new Paragraph to show a description
+            let newPara = document.createElement("p");
+            newPara.setAttribute("class","product-type text-center");
+            let newParaTextNode = document.createTextNode(product.department);
+            newPara.appendChild(newParaTextNode);
+
+            //create new paragraph to show price
             let newPricePara = document.createElement("p");
-            newPricePara.setAttribute("class","price");
+            newPricePara.setAttribute("class","price greenText");
             let newPriceParaTextNode = document.createTextNode(product.regularPrice); //2.99
             newPricePara.appendChild(newPriceParaTextNode);
             //<p class='price'>2.99</p>
@@ -135,6 +141,7 @@ export default class CatalogView{
             quickViewButton.setAttribute("id",`qv_${product.sku}`);  /* this is for the id note that the ${product.sku} is just a placeholder for the product sku. back ticks are used bc this is ES6 */
             quickViewButton.setAttribute("data-sku",product.sku); // this is for the data-sku;
             quickViewButton.setAttribute("type", "button");
+            quickViewButton.setAttribute("style", "border: 1px solid green; background-color:white; color: grey; font-family:roboto; padding:2%;");
             let quickViewTextNode = document.createTextNode("Quick View");
             quickViewButton.appendChild(quickViewTextNode);
 
@@ -143,6 +150,7 @@ export default class CatalogView{
             addToCartButton.setAttribute("id",`cart_${product.sku}`);  /* this is for the id note that the ${product.sku} is just a placeholder for the product sku. back ticks are used bc this is ES6 */
             addToCartButton.setAttribute("data-sku",product.sku); // this is for the data-sku;
             addToCartButton.setAttribute("type", "button");
+            addToCartButton.setAttribute("style", "border: 1px solid green; background-color:green; color:white; font-family:roboto; padding:2%;");
             let addToCartTextNode = document.createTextNode("Add to Cart");
             addToCartButton.appendChild(addToCartTextNode);
             addToCartButton.addEventListener("click", this.onClickCartButton(this.theApp), false);
@@ -152,8 +160,9 @@ export default class CatalogView{
 
             //we need to append these to the Div
             newDiv.appendChild(newImg);
-            newDiv.appendChild(newPara);
+            newDiv.appendChild(newHr);
             newDiv.appendChild(newH3Tag);
+            newDiv.appendChild(newPara);
             newDiv.appendChild(newPricePara);
             newDiv.appendChild(quickViewButton); // this adds new quickViewButton
             newDiv.appendChild(addToCartButton); // this adds new add to cart buttons
