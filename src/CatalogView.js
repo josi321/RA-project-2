@@ -59,9 +59,11 @@ $(document).ready(function(){
              let theSku = e.target.getAttribute("data-sku");
              theApp.shoppingCart.addItemToCart(theSku); /*addItemToCart is a function that should be in the shoppingcart.js file.
              note that theSku is a variable with the value "data-sku" which is essentially the same as (shu) in the shoppingcart.js file*/
-
+             theApp.shoppingCart.removeItemFromCart(theSku);
+             theApp.shoppingCart.initShoppingCart(theSku);
     }
 }
+
 
 //realize that theApp is refering to 'this' from App.js on line 51
     addProductsToCarousel(products, theApp){
@@ -187,5 +189,6 @@ $(document).ready(function(){
         this.initCarousel();
 
     }
+
 
 }

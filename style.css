@@ -33,6 +33,7 @@ img {
    height: auto;
    max-width: 100%;
 }
+.whiteText{color: white;}
 
 .greyText {
 	color:grey;
@@ -439,6 +440,7 @@ li{
 .social{
 	margin: 2vh;
 	text-decoration: none;
+	color:white;
 }
 
 .social a {

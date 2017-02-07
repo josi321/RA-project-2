@@ -3,12 +3,13 @@
  */
 
 import BestBuyWebService from './BestBuyWebService';
-import CatalogView from './CatalogView'
-import ShoppingCart from './ShoppingCart'
+import CatalogView from './CatalogView';
+import ShoppingCart from './ShoppingCart';
+import ShoppingCartView from './ShoppingCartView';
 
 export default class App {
 
-    constructor(){
+    constructor() {
         this.productData = null; // this will store all our data
         this.products = null; // stores specifically the products
         this.catalogView = new CatalogView(); // this will display our data
@@ -17,11 +18,11 @@ export default class App {
         // BestBuy Web Service and return the data
         this.initBestBuyWebService();
         console.log(document.getElementById("cartIcon"));
-        this.cartIcon= document.getElementById("cartIcon");
-        this.cartIcon.addEventListener("click", this.clickCart(this),false);
+        //this.cartIcon= document.getElementById("cartIcon");
+        //this.cartIcon.addEventListener("click", this.clickCart(this),false);
     }
 
-    clickCart (theApp){
+    clickCart(theApp) {
         return function(e) {
             console.log("i clicked the button");
             console.log(theApp);
@@ -29,7 +30,7 @@ export default class App {
         }
     }
 
-    initBestBuyWebService(){
+    initBestBuyWebService() {
         this.bbws = new BestBuyWebService();
         // use your own API key for this (the one from Cody)
         this.bbws.apiKey = "8ccddf4rtjz5k5btqam84qak";
@@ -42,11 +43,11 @@ export default class App {
 
     }
 
-    prepCatalog(){
+    prepCatalog() {
         // use this console.log to test the data
         // console.log(this.productData);
 
-        if(this.productData!=null){
+        if (this.productData != null) {
             // only get the products property (for now)
             // this code was copied from SimpleHTTPRequest.html
             this.products = this.bbws.getProducts();
@@ -59,15 +60,12 @@ export default class App {
     showCatalog() {
         // populate the catalog only if there are products
         if (this.productData != null) {
-            this.catalogView.addProductsToCarousel(this.products, this); /* orginally this was just this.product
-            which represents the ability to pass the products. now we added 'this' after is, and
-            rmb that 'this' refers to the entire App. Therefore, we can now pass the App to the Catalogview */
+            this.catalogView.addProductsToCarousel(this.products, this);
+            /* orginally this was just this.product
+                       which represents the ability to pass the products. now we added 'this' after is, and
+                       rmb that 'this' refers to the entire App. Therefore, we can now pass the App to the Catalogview */
             // this.catalogView.showCatalog();
         }
     }
 
 }
-
-
-
-
