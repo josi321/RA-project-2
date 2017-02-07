@@ -60,6 +60,7 @@ $('')
 
     clearCart(){
         // clear the entire cart
+        storage.clear();
     }
 
 
